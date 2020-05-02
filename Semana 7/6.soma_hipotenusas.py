@@ -8,16 +8,8 @@ def é_hipotenusa(n):
         while (i < n):
             while (j < n):
                 if (contador**2 == i**2 + j**2):
-                    index = 0
-                    adicionar = True
-
-                    while (index < len(hipotenusas)):
-                        if (hipotenusas[index] == contador):
-                            adicionar = False
-                        index = index + 1
-                    if adicionar:
+                    if (hipotenusas == [] or hipotenusas[-1] != contador):
                         hipotenusas.append(contador)
-
                 j = j + 1
             j = 1
             i = i + 1
