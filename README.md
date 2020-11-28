@@ -17,4 +17,7 @@ Aulas ministradas pelo **Professor Fabio Kon – Coursera**.
 
 * :arrows_clockwise: [Semana 7](https://github.com/laisbasso/Python/tree/master/Semana%207 "Semana 7"): Repetições encaixadas
 
-* :steam_locomotive: [Semana 8](https://github.com/laisbasso/Python/tree/master/Semana%208 "Semana 7"): Listas
+* :steam_locomotive: [Semana 8](https://github.com/laisbasso/Python/tree/master/Semana%208 "Semana 8"): Listas
+
+* :100: [Semana 9](https://github.com/laisbasso/Python/tree/master/Semana%209 "Semana 9"): Testes e **COH-PIAH**  
+ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Programa que compara textos acadêmicos para indicar qual aluno está infectado com o vírus de COH-PIAH. :eyes:
