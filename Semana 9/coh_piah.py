@@ -77,7 +77,7 @@ def compara_assinatura(assinatura_calculada, assinatura_infectada):
     '''Essa funcao recebe duas assinaturas de texto e deve devolver o grau de similaridade nas assinaturas.'''
     resultado_diferenca = []
     
-    for i in range (0, assinatura_calculada.__len__(), 1):
+    for i in range (0, len(assinatura_calculada), 1):
         resultado_diferenca.append(abs(assinatura_infectada[i] - assinatura_calculada[i]))
 
     soma_diferenca = 0
@@ -90,7 +90,6 @@ def compara_assinatura(assinatura_calculada, assinatura_infectada):
 
 def calcula_assinatura(texto):
     '''Essa funcao recebe um texto e deve devolver a assinatura do texto.'''
-    
     # wal_texto = Tamanho médio de palavra
     texto = texto.lower()
     total_letras = 0
@@ -107,38 +106,35 @@ def calcula_assinatura(texto):
       lista_palavras.extend(novas_palavras)
       
     for palavra in lista_palavras:
-      total_letras += palavra.__len__()
+      total_letras += len(palavra)
     
-    wal_texto = total_letras / lista_palavras.__len__()
+    wal_texto = total_letras / len(lista_palavras)
     
     # ttr_texto = Relação Type-Token
-    ttr_texto = n_palavras_diferentes(lista_palavras) / lista_palavras.__len__()
+    ttr_texto = n_palavras_diferentes(lista_palavras) / len(lista_palavras)
 
     # hlr_texto = Razão Hapax Legomana
-    hlr_texto = n_palavras_unicas(lista_palavras) / lista_palavras.__len__()
+    hlr_texto = n_palavras_unicas(lista_palavras) / len(lista_palavras)
     
     # sal_texto = Tamanho médio de sentença
     caracteres_sentencas = 0
     for sentenca in lista_sentencas:
-      caracteres_sentencas += sentenca.__len__()
-
-    sal_texto = caracteres_sentencas / lista_sentencas.__len__()
+      caracteres_sentencas += len(sentenca)
+    sal_texto = caracteres_sentencas / len(lista_sentencas)
     
     # sac_texto = Complexidade média da sentença
-    sac_texto =  lista_frases.__len__() / lista_sentencas.__len__()
+    sac_texto =  len(lista_frases) / len(lista_sentencas)
     
     # pal_texto = Tamanho médio de frase
     caracteres_frases = 0
     for frase in lista_frases:
-      caracteres_frases += frase.__len__()
-
-    pal_texto = caracteres_frases / lista_frases.__len__()
+      caracteres_frases += len(frase)
+    pal_texto = caracteres_frases / len(lista_frases)
    
     return [wal_texto, ttr_texto, hlr_texto, sal_texto, sac_texto, pal_texto]
 
 def avalia_textos(textos, assinatura_infectada):
-    '''Essa funcao recebe uma lista de textos e uma assinatura ass_cp e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
-
+    '''Essa funcao recebe uma lista de textos e uma assinatura assinatura_infectada e deve devolver o numero (1 a n) do texto com maior probabilidade de ter sido infectado por COH-PIAH.'''
     assinatura_texto = []
     lista_assinaturas = []
     for texto in textos:
@@ -148,11 +144,8 @@ def avalia_textos(textos, assinatura_infectada):
     return lista_assinaturas.index(max(lista_assinaturas))
 
 def main():
-    
     assinatura_infectada = []
     assinatura_infectada = le_assinatura()
-    
     textos = []
     textos = le_textos()
-
     print("O autor do texto " + str(avalia_textos(textos, assinatura_infectada)) + " está infectado com COH-PIAH.")
